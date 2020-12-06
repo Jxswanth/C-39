@@ -3,6 +3,7 @@ class Form {
   constructor() {
     this.input = createInput("Name");
     this.button = createButton('Play');
+    this.reset = createButton('Reset');
     this.greeting = createElement('h2');
     this.title = createElement('h2');
   }
@@ -19,6 +20,8 @@ class Form {
 
     this.input.position(displayWidth/2 - 40 , displayHeight/2 - 80);
     this.button.position(displayWidth/2 + 30, displayHeight/2);
+
+    this.reset.position(displayWidth/2 + 3 ,displayHeight/4 );
 2
     this.button.mousePressed(()=>{
       this.input.hide();
@@ -31,6 +34,9 @@ class Form {
       this.greeting.html("Hello " + player.name)
       this.greeting.position(displayWidth/2 - 70, displayHeight/4);
     });
-
+    this.reset.mousePressed(()=>{
+    game.update(0);
+    player.updateCount(0);     
+    });
   }
 }
